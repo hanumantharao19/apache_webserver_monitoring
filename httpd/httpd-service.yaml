@@ -4,7 +4,7 @@ metadata:
   labels:
     app: http-monitoring
     type: frontend
-  name: samplehttp-apache
+  name: http-monitoring
   namespace: monitoring
 spec:
   clusterIP: 10.96.35.47
