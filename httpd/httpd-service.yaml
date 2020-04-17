@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: http-monitoring
+    type: frontend
+  name: samplehttp-apache
+  namespace: monitoring
+spec:
+  clusterIP: 10.96.35.47
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: http
+    nodePort: 30690
+    port: 80
+    protocol: TCP
+    targetPort: http
+  - name: https
+    nodePort: 31593
+    port: 443
+    protocol: TCP
+    targetPort: https
+  selector:
+    app: http-monitoring
+    type: frontend
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
